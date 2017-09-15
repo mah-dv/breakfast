@@ -4,46 +4,52 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Jucie notations</title>
+		<!-- Out beautiful font! -->
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<!-- styles for literallycanvas -->
+		<link href="lib/literallycanvas/css/literallycanvas.css" rel="stylesheet">
+		<!-- styles for the web app -->
 		<link href="css/style.css" rel="stylesheet">
 	</head>
 
 	<body>
-		<header>
-			<h1>Brekfeast - It's Juicy! ;)</h1>
-		</header>
+		<div id="container">
+			<header>
+				<h1>Time to do some notes!</h1>
+				<aside id="about-btn">?</aside>
+			</header>
 
-		<main>
-			<iframe id="presentation" onload="iframeclick()" src="/bower_components/viewerjs/ViewerJS/#../../../../example_data/css.pdf" width='100%' height='100%' allowfullscreen webkitallowfullscreen></iframe>
-		</main>
+			<main>
+				<div class="my-drawing"></div>
+				<iframe id="presentation" src="/lib/viewerjs/ViewerJS/#../../../../example_data/css.pdf" width='100%' height='100%' allowfullscreen webkitallowfullscreen data-old-page-nr="0"></iframe>
+			</main>
 
-		<aside>
-			<textarea placeholder="Any comments?"></textarea>
-		</aside>
+			<aside>
+				<textarea id="comment"></textarea>
+			</aside>
+		</div>
 
-		<script>
-			//console.log(document.getElementById("presentation").contentDocument)
-			// For testning
-			function iframeclick() {
-				// Click on "next" button on slideshow
-				document.getElementById("presentation").contentWindow.document.getElementById("next").addEventListener("click", pressedNextBtn);
-				// Click on "prev" button on slideshow
-				document.getElementById("presentation").contentWindow.document.getElementById("previous").addEventListener("click", pressedPrevBtn);
-				// Changed presentation slide
-				document.getElementById("presentation").contentWindow.document.getElementById("pageNumber").addEventListener("click", changedSlideNr);
-			}
+		<article id="about-modal" class="modal">
+			<aside class="close">X</aside>
+			<h2>A simple app for taking notes</h2>
+			<p>This is one, of many, ways to take notes when attending to lectures. This web app is built trying to improve notes by offering the presentation while possible to draw on the slides and make side notes.</p>
+			<p>Hope you'll enyoj it!</p>
+			<p>Anton &amp; Johan</p>
+		</article>
+		<div id="modal-background"></div>
 
-			function pressedNextBtn() {
-				alert("Pressed next btn");
-			}
-
-			function pressedPrevBtn() {
-				alert("Pressed prev btn");
-			}
-
-			function changedSlideNr() {
-				alert("Changed slide nr");
-			}
-		</script>
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<!-- application logic. NOTE: this must be included before all the libs! -->
+		<script src="js/script.js"></script>
+		<!-- dependency: React.js (for the literallycanvas) -->
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-with-addons.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+		<!-- literallycanvas -->
+		<script src="lib/literallycanvas/js/literallycanvas.js"></script>
+		<!-- tinymce -->
+		<script src="lib/tinymce/js/tinymce/tinymce.min.js"></script>
+		<!-- script for Initializing the libs -->
+		<script src="js/libs.js"></script>
 	</body>
 </html>
