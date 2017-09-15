@@ -1,3 +1,6 @@
+// Try to use full screen on browser
+window.scrollTo(0,1);
+
 /*
     Loading/saving => notes/drawings
 */
@@ -11,6 +14,9 @@ $("#presentation").on("load", function () {
     document.getElementById("presentation").contentWindow.document.getElementById("pageNumber").addEventListener("change", saveLoadNotes);
 
     function saveLoadNotes() {
+        // Hide the canvas
+        $(".my-drawing").hide();
+
         // Silly, but we need to wait for the iframe to change current (new) slide
         setTimeout(function() {
             var oldPageNr = $("#presentation").attr("data-old-page-nr");
@@ -44,6 +50,8 @@ $("#presentation").on("load", function () {
         // Save the drawings/notes
         localStorage.setItem("drawings", JSON.stringify(drawings));
         localStorage.setItem("notes", JSON.stringify(notes));
+
+        savedNotification();
     }
 
     function loadNotes(page) {
@@ -55,6 +63,7 @@ $("#presentation").on("load", function () {
         if (localStorage.getItem("drawings") !== null) {
             var drawings = JSON.parse(localStorage.getItem("drawings"));
             lc.loadSnapshot(drawings[page]);
+            $(".my-drawing").fadeIn(250);
         }
 
         // If there's notes for this slide => comment it!
@@ -77,6 +86,13 @@ $("#presentation").on("load", function () {
         saveNotes(page);
     }, 5000);
 
+    /*
+        Just a toast that data is saved
+    */
+    function savedNotification() {
+        $("#saved").fadeIn(250).delay(1000).fadeOut(250);
+    }
+
 });
 
 /*
@@ -91,4 +107,4 @@ $("#about-btn").on("click", function () {
 $(".modal .close, #modal-background").on("click", function () {
     $("#about-modal").fadeOut(fadeTime);
     $("#modal-background").fadeOut(fadeTime);
-})
+});

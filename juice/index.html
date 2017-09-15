@@ -2,14 +2,17 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Jucie notations</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+		<title>Juicy notations</title>
 		<!-- Out beautiful font! -->
 		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 		<!-- styles for literallycanvas -->
 		<link href="lib/literallycanvas/css/literallycanvas.css" rel="stylesheet">
 		<!-- styles for the web app -->
 		<link href="css/style.css" rel="stylesheet">
+		<link rel="apple-touch-icon" href="images/notebook2.png">
 	</head>
 
 	<body>
@@ -21,7 +24,7 @@
 
 			<main>
 				<div class="my-drawing"></div>
-				<iframe id="presentation" src="/lib/viewerjs/ViewerJS/#../../../../example_data/css.pdf" width='100%' height='100%' allowfullscreen webkitallowfullscreen data-old-page-nr="0"></iframe>
+				<iframe id="presentation" src="/lib/viewerjs/ViewerJS/?zoom=1.1/#../../../../example_data/css.pdf" width='100%' height='100%' allowfullscreen webkitallowfullscreen data-old-page-nr="0"></iframe>
 			</main>
 
 			<aside>
@@ -37,6 +40,8 @@
 			<p>Anton &amp; Johan</p>
 		</article>
 		<div id="modal-background"></div>
+
+		<aside id="saved">Sparat!</aside>
 
 		<!-- jQuery -->
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
