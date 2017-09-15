@@ -2,17 +2,48 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Jucie notations</title>
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
 	</head>
 
 	<body>
-		<h1>Yeah!</h1>
+		<header>
+			<h1>Brekfeast - It's Juicy! ;)</h1>
+		</header>
 
-		<script src="pdf.js/src/pdf.js"></script>
+		<main>
+			<iframe id="presentation" onload="iframeclick()" src="/bower_components/viewerjs/ViewerJS/#../../../../example_data/css.pdf" width='100%' height='100%' allowfullscreen webkitallowfullscreen></iframe>
+		</main>
+
+		<aside>
+			<textarea placeholder="Any comments?"></textarea>
+		</aside>
+
 		<script>
-		PDFJS.getDocument('example_data/css.pdf').then(function(pdf) {
-			// you can now use *pdf* here
-		});
+			//console.log(document.getElementById("presentation").contentDocument)
+			// For testning
+			function iframeclick() {
+				// Click on "next" button on slideshow
+				document.getElementById("presentation").contentWindow.document.getElementById("next").addEventListener("click", pressedNextBtn);
+				// Click on "prev" button on slideshow
+				document.getElementById("presentation").contentWindow.document.getElementById("previous").addEventListener("click", pressedPrevBtn);
+				// Changed presentation slide
+				document.getElementById("presentation").contentWindow.document.getElementById("pageNumber").addEventListener("click", changedSlideNr);
+			}
+
+			function pressedNextBtn() {
+				alert("Pressed next btn");
+			}
+
+			function pressedPrevBtn() {
+				alert("Pressed prev btn");
+			}
+
+			function changedSlideNr() {
+				alert("Changed slide nr");
+			}
 		</script>
 	</body>
 </html>

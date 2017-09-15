@@ -1,0 +1,45 @@
+body {
+    display: grid;
+    grid-template-rows: 5vh 1fr 20vh;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "main"
+        "comments"
+    ;
+
+    font-family: 'Quicksand', sans-serif;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+body > header {
+    grid-area: header;
+    overflow: hidden;
+}
+
+body > header > h1 {
+    margin: 0px;
+    padding: 0px;
+    line-height: 5vh;
+    font-size: 2.5vh;
+    line-height: 5vh;
+    text-align: center;
+}
+
+body > main {
+    grid-area: main;
+}
+
+body > aside {
+    grid-area: comments;
+}
+
+body > aside > textarea {
+    width: 100%;
+    height: 19vh;
+    box-shadow: 0 0 5px #666;
+    box-sizing: border-box;
+}
