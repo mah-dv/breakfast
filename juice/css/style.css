@@ -136,3 +136,7 @@ body {
     box-shadow: 0 0 5px #999;
     display: none;
 }
+
+# presentation #about{
+	display:none;
+}
